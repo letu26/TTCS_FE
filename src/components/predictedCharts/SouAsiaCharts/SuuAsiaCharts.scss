@@ -1,0 +1,49 @@
+.container-sa{
+  background: #CEEFFA;
+  min-height: 412px;
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0D706A;
+
+  &__text{
+    flex: 1;
+    text-align: justify;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+    &--content{
+      text-indent: 20px;
+      margin-bottom: 10px;
+
+      &::first-letter{
+        font-size: 30px;
+      }
+    }
+
+    h3{
+      margin: 0;
+      font-size: 25px;
+    }
+  }
+
+  .chartssa-predicted{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .chartsa{
+      display: flex;
+      justify-content: center;
+    }
+    .chartsa-name{
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}
