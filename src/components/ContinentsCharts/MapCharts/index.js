@@ -99,7 +99,7 @@ function MapCharts() {
 
   return (
     <>
-      <div id="chartdiv" style={{ width: "790px", height: "445px" }}></div>
+      <div id="chartdiv" className="mapcharts" style={{ width: "790px", height: "445px" }}></div>
     </>
   );
 }
