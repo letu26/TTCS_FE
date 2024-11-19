@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Column } from '@ant-design/plots';
 import "./EuropeCharts.scss";
+
 function EuropeCharts() {
   const [predictedAsia, setPredictedAsia] = useState([]);
 
@@ -42,22 +43,22 @@ function EuropeCharts() {
     isStack: false,
     connectedArea: true,
     autoFit: false,
-    width: 1000,
+    width: 950,
     height: 350,
 
   };
   return (
     <>
-      <div className="container-sa">
-        <div className="chartssa-predicted">
-          <Column {...config} className="chartsa" />
-          <div className="chartsa-name">
+      <div className="container-eu">
+        <div className="chartseu-predicted">
+          <Column {...config} className="charteu" />
+          <div className="charteu-name">
             Biểu đồ dự đoán nền kinh tế số Châu Âu
           </div>
         </div>
-        <div className="container-sa__text-europe">
+        <div className="container-eu__text-europe">
           <h3>Dự đoán nền kinh tế số Châu Âu</h3>
-          <div className="container-sa__text--content">
+          <div className="container-eu__text--content">
             Châu Âu sẽ tập trung vào phát triển các công nghệ bền vững và xanh, với sự hỗ trợ mạnh mẽ từ chính phủ và các tổ chức liên minh châu Âu. Thị trường chung châu Âu sẽ tạo điều kiện thuận lợi cho việc kinh doanh và phát triển công nghệ. Tuy nhiên, tốc độ tăng trưởng kinh tế chậm và chi phí lao động cao vẫn là những thách thức lớn . Ngoài ra, châu Âu cũng sẽ chú trọng vào việc phát triển các giải pháp an ninh mạng và bảo vệ dữ liệu cá nhân để đảm bảo sự an toàn trong môi trường số.
           </div>
         </div>

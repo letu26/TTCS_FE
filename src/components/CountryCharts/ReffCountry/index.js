@@ -66,7 +66,7 @@ function ReffCountry() {
     seriesField: "name",
     connectedArea: true,
     autoFit: false,
-    width: 800,
+    width: 700,
     height: 185,
     tooltip: {
       customContent: (title, items) => {

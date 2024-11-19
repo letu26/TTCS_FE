@@ -43,7 +43,7 @@ function AmericaCharts() {
     isStack: false,
     connectedArea: true,
     autoFit: false,
-    width: 1100,
+    width: 950,
     height: 350,
 
   };
@@ -56,9 +56,9 @@ function AmericaCharts() {
             Mỹ sẽ tiếp tục dẫn đầu trong lĩnh vực công nghệ với nhiều công ty hàng đầu và hệ sinh thái khởi nghiệp mạnh mẽ. Sự đổi mới sáng tạo sẽ là động lực chính, đặc biệt trong các lĩnh vực như trí tuệ nhân tạo và công nghệ xanh. Tuy nhiên, cạnh tranh quốc tế và các quy định pháp lý ngày càng chặt chẽ có thể ảnh hưởng đến sự phát triển của các công ty công nghệ . Thêm vào đó, việc phát triển các công nghệ mới như blockchain và Internet of Things (IoT) sẽ mở ra nhiều cơ hội mới cho nền kinh tế số của Mỹ.
           </div>
         </div>
-        <div className="chartssa-predicted">
-          <Column {...config} className="chartsa" />
-          <div className="chartsa-name">
+        <div className="chartsame-predicted">
+          <Column {...config} className="chartsame" />
+          <div className="chartsame-name">
             Biểu đồ dự đoán nền kinh tế số Châu Mỹ
           </div>
         </div>

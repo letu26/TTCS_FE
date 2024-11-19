@@ -14,17 +14,18 @@ import led from "../../image/bongden.png";
 import hands from "../../image/battay.png";
 import growth from "../../image/bieudo.png";
 import "./dashbroad.scss";
-function Dashbroad() {
+import { useContext } from "react";
+import { DataContext } from "../../layout/LayoutDefault";
 
+function Dashbroad() {
+  const { divRef1, divRef2, divRefAsia, divRefAmerica, divRefEurope, divRefAfrica } = useContext(DataContext);
   return (
     <>
       <Row gutter={[20, 20]}>
         <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} style={{ marginTop: '-10px', padding: '0' }}>
           <Video />
         </Col>
-        <Col id="1" xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} style={{ height: '52px' }} >
-        </Col>
-        <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
+        <Col id="1" ref={divRef1} xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
           <div className="desc-title-one">Chart of data analysis of continents over the years</div>
         </Col>
         <Col xxl={12} xl={12} lg={12} md={12} sm={24} xs={24}>
@@ -56,9 +57,7 @@ function Dashbroad() {
             </Col>
           </Row>
         </Col>
-        <Col id="2" xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} style={{ height: '52px' }} >
-        </Col>
-        <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
+        <Col id="2" ref={divRef2} xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
           <div className="desc-title-two">Chart predicting data across continents for the next year</div>
         </Col>
         <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
@@ -68,22 +67,22 @@ function Dashbroad() {
                 <SouAsiaCharts />
               </div>
             </Col>
-            <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} >
+            <Col id="asia" ref={divRefAsia} xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} >
               <div className="box">
                 <AsiaCharts />
               </div>
             </Col>
-            <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
+            <Col id="america" ref={divRefAmerica} xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
               <div className="box">
-                 <AmericaCharts />
+                <AmericaCharts />
               </div>
             </Col>
-            <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} >
+            <Col id="europe" ref={divRefEurope} xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} >
               <div className="box">
-               <EuropeCharts />
+                <EuropeCharts />
               </div>
             </Col>
-            <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} >
+            <Col id="africa" ref={divRefAfrica} xxl={24} xl={24} lg={24} md={24} sm={24} xs={24} >
               <div className="box">
                 <AfricaCharts />
               </div>

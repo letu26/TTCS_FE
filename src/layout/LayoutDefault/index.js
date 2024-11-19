@@ -1,8 +1,8 @@
-import { Layout, Dropdown, Space } from "antd";
+import { Layout, Dropdown, Space, Button } from "antd";
 import "./LayoutDefault.scss";
 import logo from "../../image/logo.png";
 import { NavLink, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CiFilter, CiGrid41, CiLogin, CiLogout } from "react-icons/ci";
 import { GoDatabase } from "react-icons/go";
 import { IoBarChartOutline } from "react-icons/io5";
@@ -62,7 +62,7 @@ function LayoutDefault() {
   const dataContinents = dataSelect.map(item => ({
     Continents: item.Continents
   }))
-  
+
   //Xử lý các châu lục bị lặp
   const selectContinents = Array.from(
     new Map(dataContinents.map((item) => [item.Continents, item])).values()
@@ -121,86 +121,176 @@ function LayoutDefault() {
       ]
     },
   ];
+  //Cuộn trang 
+  const divRef1 = useRef(null);
+  const divRef2 = useRef(null);
+  const divRefAsia = useRef(null);
+  const divRefAmerica = useRef(null);
+  const divRefEurope = useRef(null);
+  const divRefAfrica = useRef(null);
+
+  const scrollToDiv = (divRef) => {
+    if (divRef.current) {
+      const offsetTop = divRef.current.getBoundingClientRect().top + window.pageYOffset - 72; // Điều chỉnh cuộn lên 72px
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth' // Cuộn mượt mà
+      });
+    }
+  };
+
+  const itemScroll = [
+    {
+      key: '1',
+      label: (
+        <a href="#2" onClick={(e) => {
+          e.preventDefault();
+          scrollToDiv(divRef2);
+        }}>
+          Southeast Asia
+        </a>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <a href="#asia" onClick={(e) => {
+          e.preventDefault();
+          scrollToDiv(divRefAsia)
+        }}>
+          Asia
+        </a>
+      ),
+    },
+    {
+      key: '3',
+      label: (
+        <a href="#america" onClick={(e) => {
+          e.preventDefault();
+          scrollToDiv(divRefAmerica);
+        }}>
+          America
+        </a>
+      ),
+    },
+    {
+      key: '4',
+      label: (
+        <a href="#europe" onClick={(e) => {
+          e.preventDefault();
+          scrollToDiv(divRefEurope);
+        }}>
+          Europe
+        </a>
+      ),
+    },
+    {
+      key: '5',
+      label: (
+        <a href="#africa" onClick={(e) => {
+          e.preventDefault();
+          scrollToDiv(divRefAfrica);
+        }}>
+          Africa
+        </a>
+      ),
+    },
+  ];
 
   return (
     <>
-      <Layout>
-        <header className="header">
-          <div className="header__nav">
-            <div className="header__nav--logo">
-              <img src={logo} alt="Logo" />
-            </div>
-            <div className="header_link">
-              <a href="#1" >Analyze</a>
-              <a href="#2" >Predict</a>
-            </div>
-            <div className="header__nav--title">
-              <ul>
-                <li >
-                  <NavLink to={"/"}>
-                    <CiGrid41 />
-                    <div className="name-icon">HOME</div>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/visitors"}>
-                    <IoBarChartOutline />
-                    <div className="name-icon">COUNTRY</div>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/dataupdate"}>
-                    <GoDatabase />
-                    <div className="name-icon">DATA</div>
-                  </NavLink>
-                </li>
-                <li>
-                  <Dropdown
-                    zIndex={1000}
-                    menu={{ items }}
-                  >
-                    <Space>
-                      <CiFilter />
-                      <div className="name-icon">FILTER</div>
-                    </Space>
-                  </Dropdown>
-                </li>
-              </ul>
-            </div>
-            <div className="header__nav--search">
-              <div className="search--child">
-                {selectCountry && arrContinents &&
-                  <DataContext.Provider value={{ selectCountry, arrContinents, handleChangeCountry, handleChangeContinents }}>
-                    <SearchCountry />
-                  </DataContext.Provider>
-                }
+      <div className="border-around">
+        <Layout>
+          <header className="header">
+            <div className="header__nav">
+              <div className="header__nav--logo">
+                <img src={logo} alt="Logo" />
               </div>
-              <ul>
-                <li>
-                  {token ? (<div className="childr" >
-                    <NavLink to={"/logout"}>
-                      <CiLogout /> 
-                      <div className="name-icon">LogOut</div>
+              <div className="header_link">
+                <Button onClick={(e) => {
+                  e.preventDefault();
+                  scrollToDiv(divRef1);
+                }}>ANALYZE</Button>
+                <Dropdown
+                  menu={{
+                    items: itemScroll,
+                  }}
+                  placement="bottomLeft"
+                >
+                  <Space>
+                    <Button>PREDICT</Button>
+                  </Space>
+                </Dropdown>
+              </div>
+              <div className="header__nav--title">
+                <ul>
+                  <li >
+                    <NavLink to={"/"}>
+                      <CiGrid41 />
+                      <div className="name-icon">HOME</div>
                     </NavLink>
-                  </div>) : (<div className="childr">
-                    <NavLink to={"/login"}>
-                    <CiLogin />
-                    <div className="name-icon">Login</div>
+                  </li>
+                  <li>
+                    <NavLink to={"/visitors"}>
+                      <IoBarChartOutline />
+                      <div className="name-icon">COUNTRY</div>
                     </NavLink>
-                  </div>)}
-                </li>
-              </ul>
+                  </li>
+                  <li>
+                    <NavLink to={"/dataupdate"}>
+                      <GoDatabase />
+                      <div className="name-icon">DATA</div>
+                    </NavLink>
+                  </li>
+                  <div className="filter">
+                    <Dropdown
+                      zIndex={1000}
+                      menu={{ items }}
+                    >
+                      <Space>
+                        <CiFilter />
+                        <div className="name-icon">FILTER</div>
+                      </Space>
+                    </Dropdown>
+                  </div>
+                </ul>
+              </div>
+              <div className="header__nav--search">
+                <div className="search--child">
+                  {selectCountry && arrContinents &&
+                    <DataContext.Provider value={{ selectCountry, arrContinents, handleChangeCountry, handleChangeContinents }}>
+                      <SearchCountry />
+                    </DataContext.Provider>
+                  }
+                </div>
+                <ul>
+                  <li>
+                    {token ? (<div className="childr" >
+                      <NavLink to={"/logout"}>
+                        <CiLogout />
+                        <div className="name-icon">LogOut</div>
+                      </NavLink>
+                    </div>) : (<div className="childr">
+                      <NavLink to={"/login"}>
+                        <CiLogin />
+                        <div className="name-icon">Login</div>
+                      </NavLink>
+                    </div>)}
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </header>
-        <Layout className="layout">
-          <Content className="content">
-            <DataContext.Provider value={{ changeYear, changeContinents, changeCountry }}>
-              <Outlet />
-            </DataContext.Provider>
-          </Content>
+          </header>
+          <Layout className="layout">
+            <Content className="content">
+              <DataContext.Provider value={{changeYear, changeContinents, changeCountry, divRef1, divRef2, divRefAsia, divRefAmerica, divRefEurope, divRefAfrica}}>
+                <Outlet />
+              </DataContext.Provider>
+            </Content>
+          </Layout>
         </Layout>
-      </Layout>
+      </div>
+
     </>
   )
 }

@@ -45,7 +45,7 @@ function DataNumCharts() {
     isStack: true,
     connectedArea: true,
     autoFit: false,
-    width: 350,
+    width: 340,
     height: 165,
     tooltip: {
       customContent: (title, items) => {

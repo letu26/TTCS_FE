@@ -43,7 +43,7 @@ function SouAsiaCharts() {
     isStack: false,
     connectedArea: true,
     autoFit: false,
-    width: 800,
+    width: 700,
     height: 350,
 
   };

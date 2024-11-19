@@ -1,4 +1,4 @@
-.container-sa{
+.container-eu{
   min-height: 412px;
   font-family: 'Times New Roman', Times, serif;
   display: flex;
@@ -26,20 +26,22 @@
     h3{
       margin: 0;
       font-size: 25px;
+      margin-bottom: 20px;
     }
   }
 
-  .chartssa-predicted{
+  .chartseu-predicted{
     flex: 1;
     display: flex;
     justify-content: center;
     flex-direction: column;
 
-    .chartsa{
+    .charteu{
+      width: 1000px;
       display: flex;
       justify-content: center;
     }
-    .chartsa-name{
+    .charteu-name{
       text-align: center;
       font-size: 18px;
       font-weight: 600;

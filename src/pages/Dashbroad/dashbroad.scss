@@ -18,11 +18,12 @@
   border-radius: 10px;
   background: #fff;
   height: 465px;
-  width: 740px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 0px 3px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px;
 }
 
 .desc-title-one {

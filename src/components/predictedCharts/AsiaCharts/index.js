@@ -42,22 +42,22 @@ function AsiaCharts() {
     isStack: false,
     connectedArea: true,
     autoFit: false,
-    width: 800,
+    width: 750,
     height: 350,
 
   };
   return (
     <>
-      <div className="container-sa">
+      <div className="container-as">
         <div className="chartssa-predicted">
           <Column {...config} className="chartsa" />
           <div className="chartsa-name">
             Biểu đồ dự đoán nền kinh tế số Châu Á
           </div>
         </div>
-        <div className="container-sa__text-asia">
+        <div className="container-as__text-asia">
           <h3>Dự đoán nền kinh tế số Châu Á</h3>
-          <div className="container-sa__text--content">
+          <div className="container-as__text--content">
             Châu Á, đặc biệt là Trung Quốc và Ấn Độ, sẽ tiếp tục tăng trưởng nhanh chóng trong lĩnh vực kinh tế số nhờ vào dân số lớn và thị trường tiêu dùng rộng. Sự đầu tư vào công nghệ và khởi nghiệp sẽ gia tăng, nhưng sự chênh lệch về mức độ phát triển kinh tế và hạ tầng giữa các quốc gia vẫn là vấn đề cần giải quyết . Hơn nữa, châu Á sẽ chứng kiến sự phát triển mạnh mẽ của các nền tảng thương mại điện tử và dịch vụ tài chính số, góp phần thúc đẩy nền kinh tế số của khu vực.
           </div>
         </div>
