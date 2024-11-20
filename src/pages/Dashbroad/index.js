@@ -14,11 +14,33 @@ import led from "../../image/bongden.png";
 import hands from "../../image/battay.png";
 import growth from "../../image/bieudo.png";
 import "./dashbroad.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../../layout/LayoutDefault";
+import { useLocation } from "react-router-dom";
+import img1 from "../../image/anh1.png";
+import img2 from "../../image/anh2.png";
+import img3 from "../../image/anh3.png";
+import img4 from "../../image/anh4.png";
+import img5 from "../../image/anh5.png";
+import img6 from "../../image/anh6.png";
+
 
 function Dashbroad() {
-  const { divRef1, divRef2, divRefAsia, divRefAmerica, divRefEurope, divRefAfrica } = useContext(DataContext);
+  const { divRef1, divRef2, divRefAsia, divRefAmerica, divRefEurope, divRefAfrica, scrollToDiv } = useContext(DataContext);
+  const location = useLocation();
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const targetRef = {
+        divRef1,
+        divRef2,
+        divRefAsia,
+        divRefAmerica,
+        divRefEurope,
+        divRefAfrica,
+      }[location.state.scrollTo];
+      if (targetRef) scrollToDiv(targetRef);
+    }
+  }, [location.state, divRef1, divRef2, divRefAsia, divRefAmerica, divRefEurope, divRefAfrica, scrollToDiv]);
   return (
     <>
       <Row gutter={[20, 20]}>
@@ -110,6 +132,44 @@ function Dashbroad() {
                 <img alt="" src={growth} />
                 <div className="title-desc">Benefit</div>
                 <div className="content-text">From critical and impartial analysis of cyber attacks and the lessons learnt to protect your data and business</div>
+              </div>
+            </div>
+          </div>
+        </Col>
+
+        <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
+          <div className="footer-theme">
+            <div className="title-foot">
+              Key Themes and Discussions
+            </div>
+            <div className="content-foot">
+              <div className="content-foot-item-group">
+                <div className="content-foot-item">
+                  <img alt="" src={img1} />
+                  <div className="content-foot-item-desc">What have we learnt about cyber resilience over the last year? What new vulnerabilities are there in critical infrastructure and supply chains?</div>
+                </div>
+                <div className="content-foot-item">
+                  <img alt="" src={img2} />
+                  <div className="content-foot-item-desc">What increased security risks are associated with AI, IoT, quantum and cloud solutions?</div>
+                </div>
+                <div className="content-foot-item">
+                  <img alt="" src={img3} />
+                  <div className="content-foot-item-desc">Where are the opportunities to enhance threat intelligence and modernise cyber defences with AI?</div>
+                </div>
+              </div>
+              <div className="content-foot-item-group">
+                <div className="content-foot-item">
+                  <img alt="" src={img4} />
+                  <div className="content-foot-item-desc">How much headway are business leaders making to integrate protection into corporate planning and digital governance?</div>
+                </div>
+                <div className="content-foot-item">
+                  <img alt="" src={img5} />
+                  <div className="content-foot-item-desc">What does it take to respond and recover from a cyber attack?</div>
+                </div>
+                <div className="content-foot-item">
+                  <img alt="" src={img6} />
+                  <div className="content-foot-item-desc">How can workforce skills and capabilities be improved to fortify company-wide cyber security practices?</div>
+                </div>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { Layout, Dropdown, Space, Button } from "antd";
 import "./LayoutDefault.scss";
-import logo from "../../image/logo.png";
-import { NavLink, Outlet } from "react-router-dom";
+import logo from "../../image/background_N4.png";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { CiFilter, CiGrid41, CiLogin, CiLogout } from "react-icons/ci";
 import { GoDatabase } from "react-icons/go";
@@ -145,6 +145,7 @@ function LayoutDefault() {
       label: (
         <a href="#2" onClick={(e) => {
           e.preventDefault();
+          navigate("/", { state: { scrollTo: "divRef2" }});
           scrollToDiv(divRef2);
         }}>
           Southeast Asia
@@ -156,6 +157,7 @@ function LayoutDefault() {
       label: (
         <a href="#asia" onClick={(e) => {
           e.preventDefault();
+          navigate("/", { state: { scrollTo: "divRefAsia" }});
           scrollToDiv(divRefAsia)
         }}>
           Asia
@@ -167,6 +169,7 @@ function LayoutDefault() {
       label: (
         <a href="#america" onClick={(e) => {
           e.preventDefault();
+          navigate("/", { state: { scrollTo: "divRefAmerica" }});
           scrollToDiv(divRefAmerica);
         }}>
           America
@@ -178,6 +181,7 @@ function LayoutDefault() {
       label: (
         <a href="#europe" onClick={(e) => {
           e.preventDefault();
+          navigate("/", { state: { scrollTo: "divRefEurope" }});
           scrollToDiv(divRefEurope);
         }}>
           Europe
@@ -189,6 +193,7 @@ function LayoutDefault() {
       label: (
         <a href="#africa" onClick={(e) => {
           e.preventDefault();
+          navigate("/", { state: { scrollTo: "divRefAfrica" }});
           scrollToDiv(divRefAfrica);
         }}>
           Africa
@@ -196,7 +201,7 @@ function LayoutDefault() {
       ),
     },
   ];
-
+  const navigate = useNavigate();
   return (
     <>
       <div className="border-around">
@@ -209,6 +214,7 @@ function LayoutDefault() {
               <div className="header_link">
                 <Button onClick={(e) => {
                   e.preventDefault();
+                  navigate("/", { state: { scrollTo: "divRef1" }});
                   scrollToDiv(divRef1);
                 }}>ANALYZE</Button>
                 <Dropdown
@@ -283,7 +289,7 @@ function LayoutDefault() {
           </header>
           <Layout className="layout">
             <Content className="content">
-              <DataContext.Provider value={{changeYear, changeContinents, changeCountry, divRef1, divRef2, divRefAsia, divRefAmerica, divRefEurope, divRefAfrica}}>
+              <DataContext.Provider value={{changeYear, changeContinents, changeCountry, divRef1, divRef2, divRefAsia, divRefAmerica, divRefEurope, divRefAfrica, scrollToDiv}}>
                 <Outlet />
               </DataContext.Provider>
             </Content>
