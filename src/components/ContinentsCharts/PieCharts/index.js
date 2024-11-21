@@ -35,7 +35,7 @@ function PieCharts() {
       },
     ],
     autoFit: false,
-    width: 350,
+    width: 333,
     height: 165,
     tooltip: {
       customContent: (title, items) => {

@@ -17,13 +17,15 @@ import "./dashbroad.scss";
 import { useContext, useEffect } from "react";
 import { DataContext } from "../../layout/LayoutDefault";
 import { useLocation } from "react-router-dom";
-import img1 from "../../image/anh1.png";
-import img2 from "../../image/anh2.png";
-import img3 from "../../image/anh3.png";
-import img4 from "../../image/anh4.png";
-import img5 from "../../image/anh5.png";
-import img6 from "../../image/anh6.png";
-
+import img1 from "../../image/cuong.jpg";
+import img2 from "../../image/thom.png";
+import img3 from "../../image/hue.jpg";
+import img4 from "../../image/nhung.jpg";
+import img5 from "../../image/tai.jpg";
+import img6 from "../../image/viet.jpg";
+import img7 from "../../image/son.jpg";
+import img8 from "../../image/tu.jpg";
+import img9 from "../../image/hien.jfif";
 
 function Dashbroad() {
   const { divRef1, divRef2, divRefAsia, divRefAmerica, divRefEurope, divRefAfrica, scrollToDiv } = useContext(DataContext);
@@ -139,36 +141,49 @@ function Dashbroad() {
 
         <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
           <div className="footer-theme">
-            <div className="title-foot">
-              Key Themes and Discussions
-            </div>
+            <div className="title-foot">Representatives</div>
             <div className="content-foot">
               <div className="content-foot-item-group">
                 <div className="content-foot-item">
                   <img alt="" src={img1} />
-                  <div className="content-foot-item-desc">What have we learnt about cyber resilience over the last year? What new vulnerabilities are there in critical infrastructure and supply chains?</div>
+                  <div className="content-foot-item-desc">Do Dinh Cuong</div>
                 </div>
                 <div className="content-foot-item">
                   <img alt="" src={img2} />
-                  <div className="content-foot-item-desc">What increased security risks are associated with AI, IoT, quantum and cloud solutions?</div>
+                  <div className="content-foot-item-desc">Tran Thi Quynh Thom</div>
+                  <div className="content-foot-item-desc-po">Team Leader</div>
                 </div>
                 <div className="content-foot-item">
                   <img alt="" src={img3} />
-                  <div className="content-foot-item-desc">Where are the opportunities to enhance threat intelligence and modernise cyber defences with AI?</div>
+                  <div className="content-foot-item-desc">Vu Thi Hue</div>
                 </div>
               </div>
               <div className="content-foot-item-group">
                 <div className="content-foot-item">
                   <img alt="" src={img4} />
-                  <div className="content-foot-item-desc">How much headway are business leaders making to integrate protection into corporate planning and digital governance?</div>
+                  <div className="content-foot-item-desc">Tran Thi Kim Nhung</div>
                 </div>
                 <div className="content-foot-item">
                   <img alt="" src={img5} />
-                  <div className="content-foot-item-desc">What does it take to respond and recover from a cyber attack?</div>
+                  <div className="content-foot-item-desc">Nguyen Nhuan Tai</div>
                 </div>
                 <div className="content-foot-item">
                   <img alt="" src={img6} />
-                  <div className="content-foot-item-desc">How can workforce skills and capabilities be improved to fortify company-wide cyber security practices?</div>
+                  <div className="content-foot-item-desc">Ngo The Viet</div>
+                </div>
+              </div>
+              <div className="content-foot-item-group">
+                <div className="content-foot-item">
+                  <img alt="" src={img7} />
+                  <div className="content-foot-item-desc">Nguyen Viet Son</div>
+                </div>
+                <div className="content-foot-item">
+                  <img alt="" src={img8} />
+                  <div className="content-foot-item-desc">Le Dinh Tu</div>
+                </div>
+                <div className="content-foot-item">
+                  <img alt="" src={img9} />
+                  <div className="content-foot-item-desc">Nguyen Thi Thu Hien</div>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { DualAxes } from "@ant-design/plots";
+import { Column } from "@ant-design/plots";
 import { DataContext } from "../../../layout/LayoutDefault";
 import "./DataNumberOf.scss";
 
@@ -18,32 +18,21 @@ function DataNumberOf() {
   const NumOfEnterData = dataCall.map(item => ({
     Country: item.Country,
     name: "Number of Enterprises Applying Digital Transformation (bussiness)",
-    Digital_transformation_applications: item["NumOfEnterprises"],
+    value: item["NumOfEnterprises"],
   }));
 
   const NumOfTechData = dataCall.map(item => ({
     Country: item.Country,
     name: "Number of technology start up businesses",
-    Technology_start_ups: item["NumOfTechnology"],
+    value: item["NumOfTechnology"]
   }));
 
-  // const dataCharts = [...NumOfEnterData, ...NumOfTechData];
+  const dataCharts = [...NumOfEnterData, ...NumOfTechData];
 
   const config = {
-    data: [NumOfEnterData, NumOfTechData],
+    data: dataCharts,
     xField: "Country",
-    yField: ['Digital_transformation_applications', 'Technology_start_ups'],
-    seriesField: 'name',
-    geometryOptions: [
-      {
-        geometry: 'column',
-        isGroup: true,
-      },
-      {
-        geometry: 'column',
-        isGroup: true,
-      },
-    ],
+    yField: "value",
     smooth: true,
     slider: {
       start: 0,
@@ -52,10 +41,12 @@ function DataNumberOf() {
     legend: {
       position: 'top'
     },
-    isStack: false,
+
+    seriesField: "name",
+    isStack: true,
     connectedArea: true,
     autoFit: false,
-    width: 350,
+    width: 333,
     height: 165,
     tooltip: {
       customContent: (title, items) => {
@@ -80,7 +71,7 @@ function DataNumberOf() {
       <div className="charts-container">
         <div className="title">Biểu đồ {changeContinents} năm {changeYear}</div>
         <div className="charts">
-          <DualAxes  {...config} />
+          <Column  {...config} />
         </div>
       </div>
     </>
