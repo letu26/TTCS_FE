@@ -216,7 +216,7 @@ function LayoutDefault() {
                   e.preventDefault();
                   navigate("/", { state: { scrollTo: "divRef1" }});
                   scrollToDiv(divRef1);
-                }}>ANALYZE</Button>
+                }}>CHART</Button>
                 <Dropdown
                   menu={{
                     items: itemScroll,
@@ -239,7 +239,7 @@ function LayoutDefault() {
                   <li>
                     <NavLink to={"/visitors"}>
                       <IoBarChartOutline />
-                      <div className="name-icon">COUNTRY</div>
+                      <div className="name-icon">ANALYZE</div>
                     </NavLink>
                   </li>
                   <li>
